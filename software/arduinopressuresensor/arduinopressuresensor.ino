@@ -62,8 +62,8 @@ void loop() {
     value1 = 0;
   }
 
-// mapped_val_0 = map(value0, 250, 30, 0, 100);
-//  mapped_val_1 = map(value1, 250, 30, 0, 100);
+// mapped_val_0 = map(value0, 250, 30, 0, 255);
+//  mapped_val_1 = map(value1, 250, 30, 0, 255);
   
  Serial.print(value0);
  Serial.print(" ");
