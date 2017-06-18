@@ -1,8 +1,5 @@
-//Filtered Analog Input
-//group 1 - user interface technology unit
-//main code for deformaball
-float incomingValue0;    // stores the value red from analog input
-float incomingValue1;
+float incomingValue0;    // stores the value read from analog input
+float incomingValue1;    // stores the value read from analog input
 float cleanValue0;       // stores the filtered value
 float cleanValue1;       // stores the filtered value
 float oldValue0 = 512;   // stores the previous clean value
@@ -25,13 +22,10 @@ void setup() {
 }
 // the loop routine runs over and over again forever:
 void loop() {
-//we don't really need the following print statements, 
-//but they make the visualization of the serial plotter nicer
-  
  incomingValue0 = analogRead(A0);       // read the input on analog pin 0:
   incomingValue1 = analogRead(A1); // read the input on analog pin 1
-  cleanValue0 = oldValue0 + (incomingValue0 - oldValue0) * k; //filter i  t
-  cleanValue1 = oldValue1 + (incomingValue1 - oldValue1) * k; //filter it
+  cleanValue0 = oldValue0 + (incomingValue0 - oldValue0) * k;
+  cleanValue1 = oldValue1 + (incomingValue1 - oldValue1) * k;
   oldValue0 = cleanValue0;
   oldValue1 = cleanValue1; // store value for later use
 
@@ -53,7 +47,7 @@ void loop() {
   }
 
  value0 = calibrate0 - cleanValue0;
- value1 = calibrate1 - cleanValue1;
+  value1 = calibrate1 - cleanValue1;
 
  if(value0 < 15){
     value0 = 0;
@@ -62,14 +56,12 @@ void loop() {
     value1 = 0;
   }
 
-// mapped_val_0 = map(value0, 250, 30, 0, 255);
-//  mapped_val_1 = map(value1, 250, 30, 0, 255);
+ mapped_val_0 = map(value0, 250, 30, 0, 100);
+  mapped_val_1 = map(value1, 250, 30, 0, 100);
   
  Serial.print(value0);
- Serial.print(" ");
- Serial.println(value1);
+  Serial.print(" ");
+  Serial.println(value1);
   
  
- delay(1);        // slow down the speed at which its dumped to serial a bit...
-                   // (beware: delay command can break timing-critical code!)
-}
+ delay(1);
