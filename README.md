@@ -1,6 +1,6 @@
 # deformaball
 
-Deformable Ball Music Controller prototype from the User Interface Technologies group.
+Deformable Ball Music Controller prototype.
 
 DeformaBall is a ball shaped musical controller that can be used to modulate audio when touched and squeezed.
 
